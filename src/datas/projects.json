@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Afterlife",
+        "slug": "afterlife",
+        "description": "Projet perso pour la création d'un site web d'un label de musique.",
+        "technologies": "VueJS / Figma / UX / UI / TailwindCSS / ThreeJS",
+        "projectBackground": "C'est un projet qui a démarré par l'envie de revoir le site internet.\r La version était très perfectible sur certains aspects. J'ai démarré par lister les fonctionnalités et ce qui pouvait être amélioré. \r Ensuite j'ai crée les maquettes avec les idées, pour au final crée le site web.\r Ce projet contient ThreeJS qui permet de créer des objets et animations en 3D.\r",
+        "detailedTechnologies": ["VueJS","Figma","UX","UI","TailwindCSS","ThreeJS"],
+        "backgroundColor": "#121c27",
+        "pictures": [
+            [{"srcset": "images/afterlife/homepage.webp", "type": "image/webp"}, { "srcset": "images/afterlife/homepage.jpg", "type": "image/jpeg" }],
+            [ { "srcset": "images/afterlife/recordings.webp", "type": "image/webp" }, { "srcset": "images/afterlife/recordings.jpg", "type": "image/jpeg" } ]
+        ]
+    
+    }
+]
