@@ -20,6 +20,9 @@ module.exports = {
       },
       gridTemplateColumns: {
         "30-60": "30% 60%",
+      },
+      dropShadow: {
+        "project-image": "4px 4px 6px rgba(0, 0, 0, 0.4)"
       }
     },
   },

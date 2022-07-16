@@ -12,5 +12,17 @@
             [ { "srcset": "images/afterlife/recordings.webp", "type": "image/webp" }, { "srcset": "images/afterlife/recordings.jpg", "type": "image/jpeg" } ]
         ]
     
+    },
+    {
+        "title": "Lecteur de Musique",
+        "slug": "lecteur-de-musique",
+        "description": "Projet personnel de création d'un lecteur de musique web.",
+        "technologies": "NodeJS / VueJS / Adobe XD",
+        "projectBackground": "Il s'agit d'un projet personnel créé de zéro. \r L'idée était d'avoir mes propres musiques hebergés sur un serveur personnel. \r Les musiques, au format haute qualité, sont ensuite compressés si nécessaire à la volé, une gestion de playlist ainsi que de musique favorites. \r Gestion de l'identification via l'API WebAuthn qui permet une connexion des utilisateurs sans mot de passe.",
+        "detailedTechnologies": ["Adobe XD"," NodeJS","VueJS"],
+        "backgroundColor": "#9E5CE0",
+        "pictures": [
+            [ { "srcset": "images/music-player/favoris.webp", "type": "image/webp" }, { "srcset": "images/music-player/favoris.png", "type": "image/png" } ],
+            [ { "srcset": "images/music-player/playlist.webp", "type": "image/webp" }, { "srcset": "images/music-player/playlist.png", "type": "image/png" } ]]
     }
 ]
