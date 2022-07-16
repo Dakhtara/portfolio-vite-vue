@@ -1,7 +1,7 @@
 export function useScrolling() {
   function doScrolling(target: string, duration: number = 300): void {
 
-    const elementY = document.getElementById(target).getBoundingClientRect().top;
+    const elementY = window.scrollY + document.getElementById(target).getBoundingClientRect().top;
     const startingY = window.scrollY || document.documentElement.scrollTop;
     const diff = elementY - startingY;
     let start: number | undefined;
@@ -24,6 +24,6 @@ export function useScrolling() {
       }
     });
   }
-  
+
   return { doScrolling }
 }

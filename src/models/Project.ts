@@ -1,5 +1,14 @@
 
-export default class Project {
+export type ProjectModel = {
+    slug: string;
+    backgroundColor: string;
+    pictures: Array<string>;
+    title: string;
+    detailedTechnologies: Array<string>;
+    projectBackground: string;
+}
+
+export default class Project implements ProjectModel {
     slug: string;
     backgroundColor: string;
     pictures: Array<any>;

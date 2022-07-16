@@ -38,6 +38,11 @@
   resolved "https://registry.yarnpkg.com/@thednp/shorty/-/shorty-1.0.3.tgz#65394e7420d2dd42d219f8da759a68f1a54564f0"
   integrity sha512-PPaERUGmRpi2eWxYUV5yv/pvalPgPOjwKRmRqGMWGuV8xgkvxgtjKIiFJA2D2ei4l4Ih9mEBktDg6Z9+y+To9Q==
 
+"@types/lunr@^2.3.4":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@types/lunr/-/lunr-2.3.4.tgz#728f445855818fb17776d10ef4678f278072eb03"
+  integrity sha512-j4x4XJwZvorEUbA519VdQ5b9AOU9TSvfi8tvxMAfP8XzNLtFex7A8vFQwqOx3WACbV0KMXbACV3cZl4/gynQ7g==
+
 "@vitejs/plugin-vue@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-3.0.0.tgz#7081e2b3fbe04e291bb85107b9fb57a1fa5e6aeb"
