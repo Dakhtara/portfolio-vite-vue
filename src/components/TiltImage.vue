@@ -66,7 +66,6 @@ function getThreshold() {
     for (let $i = 0; $i < 1; $i = $i + 0.01) {
         array.push($i);
     }
-    console.log(array);
     return array;
 }
 </script>

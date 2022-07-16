@@ -1,6 +1,9 @@
-<script lang="ts">
+<script lang="ts" setup>
 import Blob from "./atom/Blob.vue";
-export default { components: { Blob } }
+import { useScrolling } from "../composable/scrolling";
+
+let {doScrolling} = useScrolling();
+
 </script>
 
 <template>
@@ -13,13 +16,13 @@ export default { components: { Blob } }
           </picture>
         </a>
         <ul class="nav-menu list-none flex justify-end items-center">
-          <li data-controller="anchor" data-anchor-target-value="experience-section" class="nav-menu-item ml-10">
-            <a data-action="anchor#visit" href="#"
-               class="nav-item-link font-comfortaa text-gray-50 decoration-0 text-lg">Expériences</a>
+          <li class="nav-menu-item ml-10">
+            <a href="#"
+               class="nav-item-link font-comfortaa text-gray-50 decoration-0 text-lg" @click="doScrolling('experience-section')">Expériences</a>
           </li>
-          <li data-controller="anchor" data-anchor-target-value="project-section"
+          <li 
               class="nav-menu-item text-gray-50 ml-10">
-            <a data-action="anchor#visit" href="#" class="nav-item-link font-comfortaa decoration-0 text-lg">Projets</a>
+            <a href="#" class="nav-item-link font-comfortaa decoration-0 text-lg" @click="doScrolling('project-section')">Projets</a>
           </li>
         </ul>
       </nav>

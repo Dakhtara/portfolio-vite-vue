@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import KUTE from 'kute.js';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, Ref, VNodeRef } from 'vue';
 
-let blob1 = ref(null);
-let blob2 = ref(null);
+let blob1: Ref<VNodeRef|null> = ref(null);
+let blob2: Ref<VNodeRef|null> = ref(null);
+let blobContainer: Ref<VNodeRef|null>= ref(null);
 
 onMounted(() => {
     const tween = KUTE.fromTo(
@@ -31,17 +32,13 @@ onMounted(() => {
         })
     }, bodyIntersectionObserver);
 
-    let target = document.querySelector('#blob-header-item');
-
-    observer.observe(target);
-
-
+    observer.observe(blobContainer.value);
 })
 
 </script>
 
 <template>
-        <svg class="blob-header hidden md:block absolute z-0 top-0 left-0" id="visual" viewBox="0 0 660 260" width="660" height="260"
+        <svg ref="blobContainer" class="blob-header hidden md:block absolute z-0 top-0 left-0" id="visual" viewBox="0 0 660 260" width="660" height="260"
              xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
           <g>
