@@ -15,7 +15,7 @@ onMounted(() => {
     );
     tween.start();
 
-//We pause/resume the tween animation if blob is out of the window
+    //We pause/resume the tween animation if blob is out of the window
     const bodyIntersectionObserver = {
         root: null,
         rootMargin: '0px',

@@ -34,7 +34,7 @@ let mainPicture = props.project.pictures[0]
                 <div class="project-main-details">
                     <h2 class="project-title font-comfortaa text-2xl mb-2">{{ project.title }}</h2>
                     <p class="project-description mb-3">{{ project.projectBackground }}</p>
-                    <ul class="project-technologies-list list-none flex flex-row p-0 items-start mb-3">
+                    <ul class="project-technologies-list list-none flex flex-row flex-wrap gap-y-2 p-0 items-start mb-3">
                         <li v-for="techno in project.detailedTechnologies"
                             class="project-technologies-item rounded-lg	flex flex-row justify-center items-center text-black bg-slate-100 mr-2 px-2 py-1">
                             {{ techno }}
