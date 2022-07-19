@@ -63,8 +63,7 @@ function showLightbox(index: number) {
                         class="project-show-pictures list-none block overflow-x-scroll whitespace-nowrap pb-3 md:pb-0 md:flex"
                         data-controller="lightbox">
                         <li v-for="(picture, key) in project.pictures" class="project-show-picture inline-block max-w-xs mr-4"
-                            @click="showLightbox(key)">" 
-                            >
+                            @click="showLightbox(key)">
                             <div data-controller="lazy-loader">
                                 <picture>
                                     <source v-for="pic in picture" :type="pic.type" :srcset="pic.srcset">

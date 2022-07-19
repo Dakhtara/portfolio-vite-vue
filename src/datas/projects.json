@@ -89,7 +89,7 @@
     "description": "Développement du site de recherche de biens immobilier pour professionnels.",
     "technologies": "Symfony 3 / VueJS",
     "projectBackground": "Afin d'aider leur client dans la recherche d'un achat ou location d'immobilier, nous avons créé un site internet permettant de rechercher un bien, de créer un devis et suivre le dossier en cours.",
-    "detailedTechnologies": ["Symfony 3" ,"VueJS" , "API"],
+    "detailedTechnologies": ["Symfony 3" , "PHP", "VueJS" , "API"],
     "backgroundColor": "#C03A55",
     "pictures": [
         [ { "srcset": "images/inli/homepage-2021.webp", "type": "image/webp" }, { "srcset": "images/inli/homepage-2021.png", "type": "image/png" } ],
@@ -104,7 +104,7 @@
     "description": "Page de contact pour BMW et Mini Assurance.",
     "technologies": "Symfony 3",
     "projectBackground": "Pour les besoins de leurs clientèles qui souhaitent contacter le service assurance de BMW ou Mini Assurances. Il s'agit d'un formulaire de contact avec une gestion multi-site.",
-    "detailedTechnologies": ["Symfony 3","Twig"],
+    "detailedTechnologies": ["Symfony 3", "PHP", "Twig"],
     "backgroundColor": "#9E5CE0",
     "pictures": [
       [ {"srcset": "images/bmw/logo-bmw.webp", "type": "image/webp"}, {"srcset": "images/bmw/logo-bmw.png", "type": "image/png"}]
@@ -129,7 +129,7 @@
     "description": "Migration d'un site d'offres de voyages pour une agence de voyage.",
     "technologies": "Symfony 2 / Front-End / VueJS",
     "projectBackground": "Le site Voyage Boheme Chic était d'abord maintenu sur un Wordpress, cependant le besoin de fonctionnalités spécifiques se faisait ressentir, il a été décidé de passer ce projet sous Symfony 2. \r \r Il possède 2 interfaces différentes, l'une pour le client/prospect qui va consulter les offres et faire des demandes de devis. \r \r De l'autre côté l'interface de gestion, qui va permettre d'ajouter des voyages, gérer les devis, les médias, les utilisateurs etc.",
-    "detailedTechnologies": ["Symfony 2","VueJS", "Scss"],
+    "detailedTechnologies": ["Symfony 2", "PHP", "VueJS", "Scss"],
     "backgroundColor": "#3C3838",
     "pictures": [
       [ { "srcset": "images/voyage-boheme-chic/homepage.webp", "type": "image/webp" }, { "srcset": "images/voyage-boheme-chic/homepage.png", "type": "image/png" } ],

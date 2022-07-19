@@ -157,8 +157,12 @@ let getVisibleItems = (): Array<ProjectSearch> => {
 
                 <div class="border-t border-slate-400/30">
                     <div class="py-4 px-4 text-lg">Projects</div>
-                    <div v-for="project in state.projects" @click="onItemClick(project)" @keyup.enter="onItemClick(project)" v-show="project.shown"
-                        :class="[project.slug === state.currentFocus?.slug ? 'bg-slate-200' : '']" class="group search-menu-item flex cursor-pointer justify-between border-t border-slate-400/20
+                    <div v-for="project in state.projects" 
+                    @click="onItemClick(project)" 
+                    @keyup.enter="onItemClick(project)" 
+                    v-show="project.shown"
+                        :class="[project.slug === state.currentFocus?.slug ? 'bg-slate-200' : '']" 
+                        class="group search-menu-item flex cursor-pointer justify-between border-t border-slate-400/20
                         py-4 px-4 hover:bg-slate-200 hover:text-slate-800">
                         <span>
                             {{ project.title }}
@@ -166,7 +170,7 @@ let getVisibleItems = (): Array<ProjectSearch> => {
 
                         <div>
                             <span v-for="techno in project.detailedTechnologies"
-                                :class="[project.slug === state.currentFocus?.slug ? 'border-slate-500' : '']" class="techno border border-slate-200 rounded px-1 py-1 ml-1 text-xs text-slate-500
+                                :class="[project.slug === state.currentFocus?.slug ? 'border-slate-500' : 'border-slate-200']" class="techno border rounded px-1 py-1 ml-1 text-xs text-slate-500
                                 group-hover:border-slate-500">
                                 {{ techno }}
                             </span>
