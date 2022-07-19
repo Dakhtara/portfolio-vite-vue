@@ -12,7 +12,8 @@
     "animejs": "^3.2.1",
     "kute.js": "^2.2.4",
     "lunr": "^2.3.9",
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "vue-easy-lightbox": "^1.7.0"
   },
   "devDependencies": {
     "@types/lunr": "^2.3.4",

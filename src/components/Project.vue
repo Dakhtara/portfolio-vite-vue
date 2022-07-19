@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { ref } from "vue";
 import Project from "../models/Project"
 import TiltImage from "./TiltImage.vue";
 
@@ -14,6 +15,24 @@ let props = defineProps({
     }
 })
 let mainPicture = props.project.pictures[0]
+
+let lightboxImages = props.project.pictures.map(picture => {
+    return {
+        src: picture[0].srcset,
+        title: props.project.title
+    }
+})
+
+let lightboxVisible = ref(false)
+let lightboxIndex = ref(0)
+function hideLightbox() {
+    lightboxVisible.value = false
+}
+
+function showLightbox(index: number) {
+    lightboxIndex.value = index
+    lightboxVisible.value = true
+}
 </script>
 
 <template>
@@ -43,8 +62,9 @@ let mainPicture = props.project.pictures[0]
                     <ul v-if="project.pictures.length > 0"
                         class="project-show-pictures list-none block overflow-x-scroll whitespace-nowrap pb-3 md:pb-0 md:flex"
                         data-controller="lightbox">
-                        <li v-for="picture in project.pictures" class="project-show-picture inline-block max-w-xs mr-4"
-                            data-download-url="false" data-src="{{ asset(picture[0].srcset) }}">
+                        <li v-for="(picture, key) in project.pictures" class="project-show-picture inline-block max-w-xs mr-4"
+                            @click="showLightbox(key)">" 
+                            >
                             <div data-controller="lazy-loader">
                                 <picture>
                                     <source v-for="pic in picture" :type="pic.type" :srcset="pic.srcset">
@@ -58,6 +78,9 @@ let mainPicture = props.project.pictures[0]
             </div>
         </div>
     </div>
+          <vue-easy-lightbox :visible="lightboxVisible" :index="lightboxIndex" :imgs="lightboxImages" @hide="hideLightbox" >
+            <template v-slot:toolbar="{}"></template>
+          </vue-easy-lightbox>
 </template>
 
 <style lang="css">

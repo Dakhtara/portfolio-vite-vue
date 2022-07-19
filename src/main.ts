@@ -1,5 +1,9 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
+import VueEasyLightbox from 'vue-easy-lightbox'
 
-createApp(App).mount('#app')
+let app = createApp(App)
+app.use(VueEasyLightbox)
+
+app.mount('#app')
