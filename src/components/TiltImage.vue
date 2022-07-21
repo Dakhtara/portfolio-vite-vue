@@ -30,12 +30,14 @@ onMounted(() => {
             const translateY = entry.intersectionRatio * maxTranslateY;
             const translateX = minTranslateX + valueTranslateX;
             // let image = entry.target.querySelector('.project-main-image img');
+            //@ts-ignore
             let image = container.value.querySelector('img');
             image.style.transform = `rotate(${deg}deg) translateX(${translateX}px) translateY(${translateY}px)`;
         })
     }, bodyIntersectionObserver);
 
     if (props.isLeft && container.value !== null) {
+      //@ts-ignore
         observerLeft.observe(container.value);
     }
 
@@ -51,13 +53,15 @@ onMounted(() => {
             const deg = entry.intersectionRatio * maxDeg;
             const translateY = entry.intersectionRatio * maxTranslateY;
             const translateX = minTranslateX + valueTranslateX;
+          //@ts-ignore
             let image = container.value.querySelector('img');
             image.style.transform = `rotate(${deg}deg) translateX(${translateX}px) translateY(${translateY}px)`;
         })
     }, bodyIntersectionObserver);
 
     if (!props.isLeft && container.value !== null) {
-        observerRight.observe(container.value);
+      //@ts-ignore
+      observerRight.observe(container.value);
     }
 })
 

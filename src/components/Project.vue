@@ -46,7 +46,7 @@ function showLightbox(index: number) {
                         <picture>
                             <source v-for="pic in mainPicture" :type="pic.type" :srcset="pic.srcset">
                             <img class="main-image rounded-xl drop-shadow-project-image drop-shadow-slate-500"
-                                src="{{ asset(picture) }}" loading="lazy" :alt="'Projet ' + project.title" />
+                                :src="mainPicture[0].srcset" loading="lazy" :alt="'Projet ' + project.title" />
                         </picture>
                     </TiltImage>
                 </div>
@@ -67,7 +67,7 @@ function showLightbox(index: number) {
                             <div data-controller="lazy-loader">
                                 <picture>
                                     <source v-for="pic in picture" :type="pic.type" :srcset="pic.srcset">
-                                    <img src="{{ asset(picture) }}" class="rounded-lg max-h-36" loading="lazy"
+                                    <img :src="picture[0].srcset" class="rounded-lg max-h-36" loading="lazy"
                                         height="144" :alt="'Projet ' + project.title" />
                                 </picture>
                             </div>

@@ -1,7 +1,12 @@
 export function useScrolling() {
   function doScrolling(target: string, duration: number = 300): void {
 
-    const elementY = window.scrollY + document.getElementById(target).getBoundingClientRect().top;
+    const targetElement = document.getElementById(target);
+    if (!targetElement) {
+      return
+    }
+
+    const elementY = window.scrollY + targetElement.getBoundingClientRect().top;
     const startingY = window.scrollY || document.documentElement.scrollTop;
     const diff = elementY - startingY;
     let start: number | undefined;
