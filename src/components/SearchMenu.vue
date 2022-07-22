@@ -5,7 +5,7 @@ import {ProjectModel} from "../models/Project";
 import lunr from "lunr";
 import { useScrolling } from "../composable/scrolling";
 import store from "../stores";
-
+import crossSvg from "../assets/cross.svg?raw";
 interface ProjectSearch extends ProjectModel {
     shown?: boolean
 }
@@ -146,13 +146,16 @@ let getVisibleItems = (): Array<ProjectSearch> => {
         <div ref="backdrop"
             class="search-menu-backdrop fixed top-0 left-0 h-full w-full bg-slate-800/50 backdrop-blur-sm z-20"
             @click.self="hide">
-            <div class="absolute left-10vw top-10 w-80vw rounded border border-slate-400/20 bg-white shadow">
+            <div class="absolute md:left-10vw w-full top-10 md:w-80vw rounded border border-slate-400/20 bg-white shadow">
                 <div class="flex items-center justify-between py-2 px-4">
                     <img src="/images/search.svg" alt="Search glass" />
                     <input ref="searchInput" class="search-menu-input mx-2 w-auto flex-1 py-3 outline-0" type="search"
                         placeholder="Search for something" @keyup="search" @keydown.prevent.arrow-up="onArrowUp" @keydown.prevent.arrow-down="onArrowDown" @keyup.enter="onInputEnter" />
-                    <div class="rounded border border-slate-400/50 bg-white p-1 text-xs uppercase text-slate-500">Esc
+                    <div class="rounded border border-slate-400/50 hidden md:block bg-white p-1 text-xs uppercase text-slate-500">Esc
                     </div>
+                  <div @click="hide" class="md:hidden text-slate-500" v-html="crossSvg">
+
+                  </div>
                 </div>
 
                 <div class="border-t border-slate-400/30">

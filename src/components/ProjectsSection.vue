@@ -25,7 +25,7 @@ let toggleSearchMenu = () => {
         Vous pouvez utiliser la recherche ou alors tout simplement scroller la page pour voir les projets auxquelles j’ai participé ces dernières années
       </p>
 
-      <div class="w-6/12 mx-auto border-secondary hover:border-white transition-colors group border-2 py-4 px-6 flex rounded-xl cursor-pointer justify-between" @click="toggleSearchMenu">
+      <div class="md:w-6/12 mx-auto border-secondary hover:border-white transition-colors group border-2 py-4 px-6 flex rounded-xl cursor-pointer justify-between" @click="toggleSearchMenu">
         <span>Rechercher un projet</span>
         <div class="flex items-center text-secondary transition-colors group-hover:text-white">
           <KeyboardCommand class="mr-1 " />K
