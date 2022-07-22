@@ -1,15 +1,16 @@
 <script lang="ts" setup>
-
 import ProjectProvider from "../providers/ProjectProvider"
 import { onMounted, reactive, ref, Ref } from 'vue';
 import {ProjectModel} from "../models/Project";
 import lunr from "lunr";
 import { useScrolling } from "../composable/scrolling";
+import store from "../stores";
 
 interface ProjectSearch extends ProjectModel {
     shown?: boolean
 }
 
+const {searchMenuStore} = store.setup()
 
 let projects: Array<ProjectSearch> = new ProjectProvider().getAllProjects()
 projects.forEach((project: ProjectSearch) => {
@@ -18,8 +19,7 @@ projects.forEach((project: ProjectSearch) => {
 
 let { doScrolling } = useScrolling();
 
-const state = <{ isShown: boolean, projects: Array<ProjectSearch>, currentFocus: null | ProjectSearch }>reactive({
-    isShown: false,
+const state = <{projects: Array<ProjectSearch>, currentFocus: null | ProjectSearch }>reactive({
     projects,
     currentFocus: null,
 })
@@ -30,8 +30,8 @@ let index: lunr.Index;
 onMounted(() => {
     document.addEventListener("keydown", (event) => {
         if (event.key === "k" && event.metaKey) {
-            state.isShown = !state.isShown
-            if (state.isShown === true && searchInput.value !== null) {
+            searchMenuStore.toggle()
+            if (searchMenuStore.isOpen === true && searchInput.value !== null) {
                 // Set timeout to set focus when it is shown
                 setTimeout(() => {
                     searchInput.value.focus()
@@ -64,7 +64,7 @@ onMounted(() => {
 })
 
 let hide = () => {
-    state.isShown = false
+  searchMenuStore.hide()
 }
 
 let onItemClick = (project: ProjectSearch) => {
@@ -142,7 +142,7 @@ let getVisibleItems = (): Array<ProjectSearch> => {
 </script>
 
 <template>
-    <div id="search-menu-container" :class="[state.isShown ? 'block' : 'hidden']">
+    <div id="search-menu-container" :class="[searchMenuStore.isOpen ? 'block' : 'hidden']">
         <div ref="backdrop"
             class="search-menu-backdrop fixed top-0 left-0 h-full w-full bg-slate-800/50 backdrop-blur-sm z-20"
             @click.self="hide">
@@ -157,11 +157,11 @@ let getVisibleItems = (): Array<ProjectSearch> => {
 
                 <div class="border-t border-slate-400/30">
                     <div class="py-4 px-4 text-lg">Projects</div>
-                    <div v-for="project in state.projects" 
-                    @click="onItemClick(project)" 
-                    @keyup.enter="onItemClick(project)" 
+                    <div v-for="project in state.projects"
+                    @click="onItemClick(project)"
+                    @keyup.enter="onItemClick(project)"
                     v-show="project.shown"
-                        :class="[project.slug === state.currentFocus?.slug ? 'bg-slate-200' : '']" 
+                        :class="[project.slug === state.currentFocus?.slug ? 'bg-slate-200' : '']"
                         class="group search-menu-item flex cursor-pointer justify-between border-t border-slate-400/20
                         py-4 px-4 hover:bg-slate-200 hover:text-slate-800">
                         <span>
