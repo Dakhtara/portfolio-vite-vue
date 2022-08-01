@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import { ref } from "vue";
+import {onMounted, Ref, ref} from "vue";
 import Project from "../models/Project"
 import TiltImage from "./TiltImage.vue";
+import gsap from "gsap";
 
 let props = defineProps({
     project: {
@@ -25,6 +26,11 @@ let lightboxImages = props.project.pictures.map(picture => {
 
 let lightboxVisible = ref(false)
 let lightboxIndex = ref(0)
+let projectSection = ref(null)
+let projectTitle: Ref|null = ref(null)
+let projectTechnos: Ref|null = ref(null)
+let timeline: GSAPTimeline = gsap.timeline();
+
 function hideLightbox() {
     lightboxVisible.value = false
 }
@@ -33,10 +39,35 @@ function showLightbox(index: number) {
     lightboxIndex.value = index
     lightboxVisible.value = true
 }
+
+onMounted(() => {
+  let observer = new IntersectionObserver((entries) => {
+    if (!projectTitle) {
+      return;
+    }
+    if (entries[0].isIntersecting) {
+      //Animate with gsap
+      timeline?.play();
+    } else {
+      timeline?.reverse()
+    }
+  }, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.4
+  })
+
+  if (projectSection && projectTitle && projectTechnos) {
+    timeline.from(projectTitle.value, {x: 50, opacity: 0, duration: .8, ease: "power3.out"})
+    timeline.from(projectTechnos.value, {y: -20, opacity: 0, duration: .3, ease: "power3.out"})
+    observer.observe(projectSection.value)
+  }
+})
+
 </script>
 
 <template>
-    <div :id="'project-' + project.slug" class="project py-3 md:py-24 overflow-x-hidden"
+    <div ref="projectSection" :id="'project-' + project.slug" class="project py-3 md:py-24 overflow-x-hidden overflow-y-hidden h-screen"
         :style="'background-color:' + project.backgroundColor">
         <div class="container mx-auto">
             <div class="project-details grid grid-cols-[100%] md:grid-cols-30-60 gap-x-36"
@@ -51,14 +82,15 @@ function showLightbox(index: number) {
                     </TiltImage>
                 </div>
                 <div class="project-main-details">
-                    <h2 class="project-title font-comfortaa text-2xl mb-2">{{ project.title }}</h2>
+                    <h2 ref="projectTitle" class="project-title font-comfortaa text-7xl mb-2">{{ project.title }}</h2>
+                  <ul class="project-technologies-list list-none flex flex-row flex-wrap gap-y-2 p-0 items-start mb-10">
+                    <li ref="projectTechnos" v-for="techno in project.detailedTechnologies"
+                        class="project-technologies-item	flex flex-row justify-center items-center text-gray-200 mr-2 px-2 py-1">
+                      {{ techno }}
+                    </li>
+                  </ul>
+
                     <p class="project-description mb-3">{{ project.projectBackground }}</p>
-                    <ul class="project-technologies-list list-none flex flex-row flex-wrap gap-y-2 p-0 items-start mb-3">
-                        <li v-for="techno in project.detailedTechnologies"
-                            class="project-technologies-item rounded-lg	flex flex-row justify-center items-center text-black bg-slate-100 mr-2 px-2 py-1">
-                            {{ techno }}
-                        </li>
-                    </ul>
                     <ul v-if="project.pictures.length > 0"
                         class="project-show-pictures list-none block overflow-x-scroll whitespace-nowrap pb-3 md:pb-0 md:flex"
                         data-controller="lightbox">

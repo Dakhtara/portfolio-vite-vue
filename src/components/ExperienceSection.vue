@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <section id="experience-section" class="container mx-auto mt-8 mb-4 md:my-24">
+  <section id="experience-section" class="container mx-auto pt-8 pb-4 md:py-24 h-screen overflow-y-hidden">
     <div class="mb-16">
       <h1 class="font-comfortaa text-primary mb-6 text-2xl">Développement Back-End</h1>
       <p class="text-base">Développeur PHP depuis maintenant 8 ans, j'ai acquis une forte expérience sur
