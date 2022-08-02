@@ -57,7 +57,7 @@ onMounted(() => {
     threshold: 0.4
   })
 
-  if (projectSection && projectTitle && projectTechnos) {
+  if (projectSection && projectSection.value && projectTitle && projectTechnos) {
     timeline.from(projectTitle.value, {x: 50, opacity: 0, duration: .8, ease: "power3.out"})
     timeline.from(projectTechnos.value, {y: -20, opacity: 0, duration: .3, ease: "power3.out"})
     observer.observe(projectSection.value)
