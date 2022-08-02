@@ -8,6 +8,7 @@ let {doScrolling} = useScrolling();
 let mainTitle: Ref|null = ref(null)
 
 onMounted(() => {
+if (mainTitle) {
   let animation = gsap.from(mainTitle.value, {
     duration: 1.5,
     opacity: 0,
@@ -16,6 +17,7 @@ onMounted(() => {
     ease: "power3.out"
   })
   animation.play();
+}
 })
 </script>
 
