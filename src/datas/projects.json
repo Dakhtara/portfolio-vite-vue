@@ -16,12 +16,12 @@
     "backgroundColor": "#121c27",
     "pictures": [
       [
-        { "srcset": "images/afterlife/homepage.webp", "type": "image/webp" },
-        { "srcset": "images/afterlife/homepage.jpg", "type": "image/jpeg" }
+        { "srcset": "/images/afterlife/homepage.webp", "type": "image/webp" },
+        { "srcset": "/images/afterlife/homepage.jpg", "type": "image/jpeg" }
       ],
       [
-        { "srcset": "images/afterlife/recordings.webp", "type": "image/webp" },
-        { "srcset": "images/afterlife/recordings.jpg", "type": "image/jpeg" }
+        { "srcset": "/images/afterlife/recordings.webp", "type": "image/webp" },
+        { "srcset": "/images/afterlife/recordings.jpg", "type": "image/jpeg" }
       ]
     ]
   },
@@ -35,12 +35,12 @@
     "backgroundColor": "#9E5CE0",
     "pictures": [
       [
-        { "srcset": "images/music-player/favoris.webp", "type": "image/webp" },
-        { "srcset": "images/music-player/favoris.png", "type": "image/png" }
+        { "srcset": "/images/music-player/favoris.webp", "type": "image/webp" },
+        { "srcset": "/images/music-player/favoris.png", "type": "image/png" }
       ],
       [
-        { "srcset": "images/music-player/playlist.webp", "type": "image/webp" },
-        { "srcset": "images/music-player/playlist.png", "type": "image/png" }
+        { "srcset": "/images/music-player/playlist.webp", "type": "image/webp" },
+        { "srcset": "/images/music-player/playlist.png", "type": "image/png" }
       ]
     ]
   },
@@ -55,11 +55,11 @@
     "pictures": [
       [
         {
-          "srcset": "images/april-marine/logo-april-marine.webp",
+          "srcset": "/images/april-marine/logo-april-marine.webp",
           "type": "image/webp"
         },
         {
-          "srcset": "images/april-marine/logo-april-marine.png",
+          "srcset": "/images/april-marine/logo-april-marine.png",
           "type": "image/png"
         }
       ]
@@ -76,10 +76,10 @@
     "pictures": [
       [
         {
-          "srcset": "images/easysysteme/site-public.webp",
+          "srcset": "/images/easysysteme/site-public.webp",
           "type": "image/webp"
         },
-        { "srcset": "images/easysysteme/site-public.png", "type": "image/png" }
+        { "srcset": "/images/easysysteme/site-public.png", "type": "image/png" }
       ]
     ]
   },
@@ -92,9 +92,9 @@
     "detailedTechnologies": ["Symfony 3" , "PHP", "VueJS" , "API"],
     "backgroundColor": "#C03A55",
     "pictures": [
-        [ { "srcset": "images/inli/homepage-2021.webp", "type": "image/webp" }, { "srcset": "images/inli/homepage-2021.png", "type": "image/png" } ],
-        [ { "srcset": "images/inli/fiche-bien-2021.webp", "type": "image/webp" }, { "srcset": "images/inli/fiche-bien-2021.png", "type": "image/png" } ],
-        [ { "srcset": "images/inli/mobile.webp", "type": "image/webp" }, { "srcset": "images/inli/mobile.png", "type": "image/png" } ]
+        [ { "srcset": "/images/inli/homepage-2021.webp", "type": "image/webp" }, { "srcset": "/images/inli/homepage-2021.png", "type": "image/png" } ],
+        [ { "srcset": "/images/inli/fiche-bien-2021.webp", "type": "image/webp" }, { "srcset": "/images/inli/fiche-bien-2021.png", "type": "image/png" } ],
+        [ { "srcset": "/images/inli/mobile.webp", "type": "image/webp" }, { "srcset": "/images/inli/mobile.png", "type": "image/png" } ]
 
     ]
   },
@@ -107,7 +107,7 @@
     "detailedTechnologies": ["Symfony 3", "PHP", "Twig"],
     "backgroundColor": "#9E5CE0",
     "pictures": [
-      [ {"srcset": "images/bmw/logo-bmw.webp", "type": "image/webp"}, {"srcset": "images/bmw/logo-bmw.png", "type": "image/png"}]
+      [ {"srcset": "/images/bmw/logo-bmw.webp", "type": "image/webp"}, {"srcset": "images/bmw/logo-bmw.png", "type": "image/png"}]
     ]
   },
   {
@@ -119,8 +119,8 @@
     "detailedTechnologies": ["SASS", "Drupal", "CSS3", "Accessibilité"],
     "backgroundColor": "#A7287D",
     "pictures": [
-    [ { "srcset": "images/sncf/homepage.webp", "type": "image/webp" }, { "srcset": "images/sncf/homepage.png", "type": "image/png" } ],
-      [ { "srcset": "images/sncf/accessibilite.webp", "type": "image/webp" }, { "srcset": "images/sncf/accessibilite.png", "type": "image/png" } ]
+    [ { "srcset": "/images/sncf/homepage.webp", "type": "image/webp" }, { "srcset": "/images/sncf/homepage.png", "type": "image/png" } ],
+      [ { "srcset": "/images/sncf/accessibilite.webp", "type": "image/webp" }, { "srcset": "/images/sncf/accessibilite.png", "type": "image/png" } ]
     ]
   },
   {
@@ -132,8 +132,8 @@
     "detailedTechnologies": ["Symfony 2", "PHP", "VueJS", "Scss"],
     "backgroundColor": "#3C3838",
     "pictures": [
-      [ { "srcset": "images/voyage-boheme-chic/homepage.webp", "type": "image/webp" }, { "srcset": "images/voyage-boheme-chic/homepage.png", "type": "image/png" } ],
-      [ { "srcset": "images/voyage-boheme-chic/offre-voyage.webp", "type": "image/webp" }, { "srcset": "images/voyage-boheme-chic/offre-voyage.png", "type": "image/png" } ]
+      [ { "srcset": "/images/voyage-boheme-chic/homepage.webp", "type": "image/webp" }, { "srcset": "/images/voyage-boheme-chic/homepage.png", "type": "image/png" } ],
+      [ { "srcset": "/images/voyage-boheme-chic/offre-voyage.webp", "type": "image/webp" }, { "srcset": "/images/voyage-boheme-chic/offre-voyage.png", "type": "image/png" } ]
     ]
   }
 ]

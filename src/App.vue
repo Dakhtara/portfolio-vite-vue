@@ -27,35 +27,51 @@ onMounted(() => {
           return;
         }
 
-        gsap.to(totalSection.value, {y: `-${currentSection}00vh`, duration: .8, onStart: () => {
+        gsap.to(totalSection.value, {
+          y: `-${currentSection}00vh`, duration: .8, onStart: () => {
             isAnimating = true;
           }, onComplete: () => {
             setTimeout(() => {
               isAnimating = false;
             }, 300)
-          }})
+          }
+        })
       })
 })
 </script>
 
 <template>
-  <div class="slider h-screen overflow-y-hidden">
-    <div ref="totalSection">
 
-      <div class="slider-item">
-        <Topnav/>
-      </div>
-      <div class="slider-item">
-        <ExperienceSection/>
-      </div>
-      <div class="slider-item">
-        <ProjectsSection/>
-      </div>
-    </div>
-
+  <div class="relative">
+    <router-view v-slot="{Component, route}">
+      <Transition name="slide-right">
+        <component :is="Component" :key="route.path"/>
+      </Transition>
+    </router-view>
   </div>
   <SearchMenu/>
 </template>
 
 <style scoped>
+.slide-right-leave-active {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  transition: all .8s ease-in-out;
+}
+
+.slide-right-enter-active {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  transition: all 1.8s ease-in-out .6s;
+}
+
+.slide-right-leave-to {
+  transform: translateX(100vw);
+}
 </style>

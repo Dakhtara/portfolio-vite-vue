@@ -4,12 +4,14 @@ import {useScrolling} from "../composable/scrolling";
 import store from "../stores";
 import crossSvg from "../assets/cross.svg?raw";
 import {useSearchMenu} from "../composable/searchMenu";
+import {useRouter} from "vue-router";
 
 interface ProjectSearch extends ProjectModel {
   shown?: boolean
 }
 
 //Composable
+const router = useRouter();
 let {doScrolling} = useScrolling();
 let {
   hide,
@@ -20,8 +22,18 @@ let {
   state,
   search
 } = useSearchMenu((project: ProjectSearch) => {
-  doScrolling(`project-${project.slug}`, 600)
+  router.push({
+    name: "project",
+    params: {
+      slug: project.slug
+    }
+  })
 });
+
+let goToHome = () => {
+  router.push({name: "home"})
+  hide()
+}
 
 //Store
 const {searchMenuStore} = store.setup()
@@ -47,6 +59,12 @@ const {searchMenuStore} = store.setup()
         </div>
 
         <div class="border-t border-slate-400/30">
+          <div class=" group search-menu-item flex cursor-pointer justify-between border-t border-slate-400/20
+                        py-4 px-4 hover:bg-slate-200 hover:text-slate-800"
+            @click="goToHome"
+          >
+            <span>Homepage</span>
+          </div>
           <div class="py-4 px-4 text-lg">Projects</div>
           <div v-for="project in state.projects"
                @click="onItemClick(project)"

@@ -17,7 +17,8 @@
     "pinia": "^2.0.16",
     "rxjs": "^7.5.6",
     "vue": "^3.2.37",
-    "vue-easy-lightbox": "^1.7.0"
+    "vue-easy-lightbox": "^1.7.0",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@types/lunr": "^2.3.4",

@@ -3,9 +3,16 @@ import Blob from "./atom/Blob.vue";
 import { useScrolling } from "../composable/scrolling";
 import {onMounted, Ref, ref} from "vue";
 import gsap from "gsap";
+import KeyboardCommand from "./atom/KeyboardCommand.vue";
+import store from "../stores";
 
+const {searchMenuStore} = store.setup()
 let {doScrolling} = useScrolling();
 let mainTitle: Ref|null = ref(null)
+
+let toggleSearchMenu = () => {
+  searchMenuStore.toggle()
+}
 
 onMounted(() => {
   let animation = gsap.from(mainTitle.value, {
@@ -20,7 +27,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="top-section bg-primary text-gray-50 pt-4 pb-9 h-screen">
+  <section class="top-section bg-primary text-gray-50 pt-4 pb-9 min-h-screen">
     <div class="container mx-auto">
       <nav class="grid-cols-2 hidden md:grid">
         <a>
@@ -50,6 +57,14 @@ onMounted(() => {
           Que vous soyez une agence web, une entreprise ou une boutique, je peux vous aider dans votre développement
           d'application ou sites web.</p>
       </div>
+
+      <div class="md:w-6/12 mx-auto border-secondary hover:border-white transition-colors group border-2 py-4 px-6 flex rounded-xl cursor-pointer justify-between" @click="toggleSearchMenu">
+        <span>Rechercher un projet</span>
+        <div class="flex items-center text-secondary transition-colors group-hover:text-white">
+          <KeyboardCommand class="mr-1 " />K
+        </div>
+      </div>
+
     </div>
   </section>
 </template>

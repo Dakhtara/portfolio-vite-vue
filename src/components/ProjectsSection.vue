@@ -15,7 +15,7 @@ let toggleSearchMenu = () => {
 </script>
 
 <template>
-  <section id="project-section" class="bg-primary projects text-slate-50 h-screen">
+  <section id="project-section" class="bg-primary projects text-slate-50">
     <div class="container mx-auto py-24 min-h-screen">
       <h1 class="project-section-title text-center font-comfortaa text-white text-3xl font-bold mb-10">Projets</h1>
 
