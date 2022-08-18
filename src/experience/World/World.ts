@@ -4,6 +4,7 @@ import Resources from "../Utils/Resources";
 import Environment from "./Environment";
 import TailwindModel from "./TailwindModel";
 import OnUpdateTriggerInterface from "../Interfaces/OnUpdateTriggerInterface";
+import VueJsModel from "./VueJsModel";
 
 export default class World implements OnUpdateTriggerInterface {
     experience: PortfolioExperience
@@ -11,6 +12,7 @@ export default class World implements OnUpdateTriggerInterface {
     resources: Resources
     environment: Environment
     tailwindModel: TailwindModel
+    vuejsModel: VueJsModel
     particles: Particle
 
     constructor() {
@@ -21,12 +23,17 @@ export default class World implements OnUpdateTriggerInterface {
         this.resources.on('ready', () => {
             this.environment = new Environment()
             this.tailwindModel = new TailwindModel()
+            this.vuejsModel = new VueJsModel()
         })
     }
 
     onUpdate(): void {
         if (this.tailwindModel) {
             this.tailwindModel.onUpdate()
+        }
+
+        if (this.vuejsModel) {
+            this.vuejsModel.onUpdate()
         }
     }
 }
