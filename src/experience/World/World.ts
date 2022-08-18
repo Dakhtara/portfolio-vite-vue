@@ -5,6 +5,8 @@ import Environment from "./Environment";
 import TailwindModel from "./TailwindModel";
 import OnUpdateTriggerInterface from "../Interfaces/OnUpdateTriggerInterface";
 import VueJsModel from "./VueJsModel";
+import FigmaModel from "./FigmaModel";
+import PhpModel from "./PhpModel";
 
 export default class World implements OnUpdateTriggerInterface {
     experience: PortfolioExperience
@@ -13,6 +15,8 @@ export default class World implements OnUpdateTriggerInterface {
     environment: Environment
     tailwindModel: TailwindModel
     vuejsModel: VueJsModel
+    figmaModel: FigmaModel
+    phpModel: PhpModel
     particles: Particle
 
     constructor() {
@@ -24,6 +28,8 @@ export default class World implements OnUpdateTriggerInterface {
             this.environment = new Environment()
             this.tailwindModel = new TailwindModel()
             this.vuejsModel = new VueJsModel()
+            this.figmaModel = new FigmaModel()
+            this.phpModel = new PhpModel()
         })
     }
 
@@ -34,6 +40,14 @@ export default class World implements OnUpdateTriggerInterface {
 
         if (this.vuejsModel) {
             this.vuejsModel.onUpdate()
+        }
+
+        if (this.figmaModel) {
+            this.figmaModel.onUpdate()
+        }
+
+        if (this.phpModel) {
+            this.phpModel.onUpdate()
         }
     }
 }

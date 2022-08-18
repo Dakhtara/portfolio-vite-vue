@@ -9,4 +9,14 @@ export default [
         type: "gltfModel",
         path: "/assets/models/vuejs.glb"
     },
+    {
+        name: "figmaModel",
+        type: "gltfModel",
+        path: "/assets/models/figma.glb"
+    },
+    {
+        name: "phpModel",
+        type: "gltfModel",
+        path: "/assets/models/php.glb"
+    },
 ]
