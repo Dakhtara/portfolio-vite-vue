@@ -19,8 +19,10 @@ onMounted(() => {
           return;
         }
 
+        //@ts-ignore
         if (event.deltaY > 0 && currentSection < sections) {
           currentSection++;
+          //@ts-ignore
         } else if (event.deltaY < 0 && currentSection > 0) {
           currentSection--;
         } else {

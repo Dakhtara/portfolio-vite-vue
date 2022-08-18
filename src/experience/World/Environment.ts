@@ -10,7 +10,7 @@ export default class Environment {
     scene: THREE.Scene
     resources: Resources
     debug: Debug
-    debugFolder: GUI
+    debugFolder: GUI|undefined
 
     constructor() {
         this.experience = new PortfolioExperience()
@@ -19,8 +19,7 @@ export default class Environment {
         this.debug = this.experience.debug
 
         // Debug
-        if(this.debug.active)
-        {
+        if (this.debug.active) {
             this.debugFolder = this.debug.ui.addFolder('environment')
         }
 

@@ -26,6 +26,7 @@ onMounted(() => {
   timeline.play()
 
   const options: object = {}
+  //@ts-ignore
   options.camera = {
     orbitControls: import.meta.env.VITE_ENABLE_ORBIT_CONTROLS === '1'
   }
@@ -67,8 +68,7 @@ onBeforeUnmount(() => {
       <ul v-if="project.pictures.length > 0"
           class="project-show-pictures list-none block overflow-x-scroll whitespace-nowrap pb-3 md:pb-0 md:flex"
           data-controller="lightbox">
-        <li v-for="(picture, key) in project.pictures" class="project-show-picture inline-block max-w-xs mr-4"
-            @click="showLightbox(key)">
+        <li v-for="(picture, key) in project.pictures" class="project-show-picture inline-block max-w-xs mr-4">
           <div data-controller="lazy-loader">
             <picture>
               <source v-for="pic in picture" :type="pic.type" :srcset="pic.srcset">

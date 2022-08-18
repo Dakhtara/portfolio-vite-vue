@@ -16,6 +16,16 @@ export default defineConfig({
             workbox: {
                 globPatterns: ['**/*.{js,css,html,jpg,svg,webp,woff2,woff}']
             }
-        })
-    ]
+        }),
+    ],
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    three: ['three'],
+                    gsap: ['gsap']
+                }
+            }
+        }
+    }
 })

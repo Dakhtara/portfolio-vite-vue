@@ -15,7 +15,7 @@ export default class PhpModel implements OnUpdateTriggerInterface
     model: THREE.Scene
     time: Time
     debug: Debug
-    debugModel: GUI
+    debugModel: GUI|undefined
 
     constructor() {
         this.experience = new PortfolioExperience()
@@ -29,13 +29,13 @@ export default class PhpModel implements OnUpdateTriggerInterface
         }
         // @ts-ignore
         this.resource = this.resources.items.phpModel
+        this.model = this.resource.scene
         this.buildModel()
     }
 
     private buildModel() {
-        this.model = this.resource.scene
         this.scene.add(this.model)
-        this.model.traverse((child) =>
+        this.model.traverse((child: any) =>
         {
             if(child instanceof THREE.Mesh)
             {

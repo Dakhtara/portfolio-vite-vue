@@ -17,13 +17,13 @@ export default class World implements OnUpdateTriggerInterface {
     vuejsModel: VueJsModel
     figmaModel: FigmaModel
     phpModel: PhpModel
-    particles: Particle
 
     constructor() {
         this.experience = new PortfolioExperience()
         this.scene = this.experience.scene
         this.resources = this.experience.resources
 
+        //@ts-ignore
         this.resources.on('ready', () => {
             this.environment = new Environment()
             this.tailwindModel = new TailwindModel()

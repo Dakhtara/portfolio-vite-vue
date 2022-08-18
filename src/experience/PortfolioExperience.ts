@@ -8,7 +8,7 @@ import Resources from "./Utils/Resources";
 import sources from "./sources";
 import World from "./World/World";
 
-let experience = null
+let experience: null|PortfolioExperience = null
 
 export interface Parameters {
     clearColor: string|null;
@@ -28,7 +28,7 @@ export default class PortfolioExperience
     world: World
     parameters: Parameters
 
-    constructor(canvas: HTMLElement|null = null, options: any = null, parameters: Parameters = []) {
+    constructor(canvas: HTMLElement|null = null, options: any = null, parameters: Parameters = {clearColor: null}) {
         if (experience) {
             return experience
         }
@@ -48,12 +48,14 @@ export default class PortfolioExperience
         this.renderer = new Renderer()
         this.world = new World()
         // Resize event
+        //@ts-ignore
         this.sizes.on('resize', () =>
         {
             this.resize()
         })
 
         // Time tick event
+        //@ts-ignore
         this.time.on('tick', () =>
         {
             this.update()
@@ -73,7 +75,9 @@ export default class PortfolioExperience
     }
 
     destroy() {
+        //@ts-ignore
         this.sizes.off('resize')
+        //@ts-ignore
         this.time.off('tick')
         // Traverse the whole scene
         this.scene.traverse((child) =>

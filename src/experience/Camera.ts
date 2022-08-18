@@ -12,12 +12,12 @@ interface CameraOptions {
 
 export default class Camera implements OnResizeTriggerInterface, OnUpdateTriggerInterface {
     experience: PortfolioExperience
-    instance: THREE.PerspectiveCamera
+    instance: THREE.PerspectiveCamera|null = null
     sizes: Sizes
     scene: THREE.Scene
     canvas: HTMLElement
     controls: OrbitControls | null = null
-    options: CameraOptions
+    options: CameraOptions | null = null
 
     constructor(options: CameraOptions|null = null) {
         this.experience = new PortfolioExperience()
@@ -27,7 +27,7 @@ export default class Camera implements OnResizeTriggerInterface, OnUpdateTrigger
         this.options = options
 
         this.setInstance()
-        if (this.options.orbitControls) {
+        if (this.options && this.options.orbitControls) {
             this.setControls()
         }
     }
@@ -39,17 +39,21 @@ export default class Camera implements OnResizeTriggerInterface, OnUpdateTrigger
     }
 
     private setControls(): void {
-        this.controls = new OrbitControls(this.instance, this.canvas)
-        this.controls.enableDamping = true
+        if (this.instance) {
+            this.controls = new OrbitControls(this.instance, this.canvas)
+            this.controls.enableDamping = true
+        }
     }
 
     onResize(): void {
-        this.instance.aspect = this.sizes.width / this.sizes.height
-        this.instance.updateProjectionMatrix()
+        if (this.instance) {
+            this.instance.aspect = this.sizes.width / this.sizes.height
+            this.instance.updateProjectionMatrix()
+        }
     }
 
     onUpdate(): void {
-        if (this.options.orbitControls) {
+        if (this.options && this.options.orbitControls && this.controls) {
             this.controls.update()
         }
     }

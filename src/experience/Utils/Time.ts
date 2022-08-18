@@ -30,6 +30,7 @@ export default class Time extends EventEmitter
         this.current = currentTime
         this.elapsed = this.current - this.start
 
+        //@ts-ignore
         this.trigger('tick')
 
         window.requestAnimationFrame(() =>

@@ -10,6 +10,7 @@ export default class Resources extends EventEmitter
     loaded: number
     loaders: any
 
+    //@ts-ignore
     constructor(sources)
     {
         super()
@@ -41,6 +42,7 @@ export default class Resources extends EventEmitter
             {
                 this.loaders.gltfLoader.load(
                     source.path,
+                    //@ts-ignore
                     (file) =>
                     {
                         this.sourceLoaded(source, file)
@@ -51,6 +53,7 @@ export default class Resources extends EventEmitter
             {
                 this.loaders.textureLoader.load(
                     source.path,
+                    //@ts-ignore
                     (file) =>
                     {
                         this.sourceLoaded(source, file)
@@ -61,6 +64,7 @@ export default class Resources extends EventEmitter
             {
                 this.loaders.cubeTextureLoader.load(
                     source.path,
+                    //@ts-ignore
                     (file) =>
                     {
                         this.sourceLoaded(source, file)
@@ -70,14 +74,17 @@ export default class Resources extends EventEmitter
         }
     }
 
+    //@ts-ignore
     sourceLoaded(source, file)
     {
+        // @ts-ignore
         this.items[source.name] = file
 
         this.loaded++
 
         if(this.loaded === this.toLoad)
         {
+            //@ts-ignore
             this.trigger('ready')
         }
     }
