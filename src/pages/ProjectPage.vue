@@ -1,11 +1,12 @@
 <script lang="ts" setup>
-import {onMounted, Ref, ref} from "vue";
+import {onBeforeUnmount, onMounted, Ref, ref} from "vue";
 import ProjectProvider from "../providers/ProjectProvider";
 import ProjectModel from "../models/Project";
 import {useRoute} from "vue-router";
 import gsap from "gsap";
 import arrowLeft from "../assets/arrow-left.svg?raw";
 import tailwind from "../assets/tailwindcss.svg?raw";
+import PortfolioExperience from "../experience/PortfolioExperience";
 
 const route = useRoute()
 let projectProvider = new ProjectProvider()
@@ -23,14 +24,31 @@ onMounted(() => {
     timeline.from(projectTechnos.value, {y: -20, opacity: 0, duration: .3, ease: "power3.out"})
   }
   timeline.play()
+
+  const options: object = {}
+  options.camera = {
+    orbitControls: import.meta.env.VITE_ENABLE_ORBIT_CONTROLS === '1'
+  }
+
+  experience = new PortfolioExperience(canvas.value, options, {clearColor: project.value?.backgroundColor})
+})
+
+//Experience
+const canvas = ref(null)
+const width = ref(window.innerWidth)
+let experience: PortfolioExperience;
+
+onBeforeUnmount(() => {
+  experience.destroy()
 })
 
 </script>
 
 <template>
-  <div ref="projectSection" class="project py-3 md:py-12 min-h-screen text-slate-50"
-       :style="'background-color:' + project.backgroundColor">
-    <div class="container mx-auto">
+  <div ref="projectSection" class="project py-3 md:py-12 min-h-screen text-slate-50">
+    <canvas class="fixed top-0" style="z-index:-1;" ref="canvas"></canvas>
+
+    <div class="container mx-auto z-10">
       <router-link class="mb-5 flex gap-x-2" :to="{name: 'home'}"><span v-html="arrowLeft"></span> Retour accueil</router-link>
 
       <h1 ref="projectTitle" class="project-title font-comfortaa text-7xl mt-4 mb-2">{{ project.title }}</h1>
