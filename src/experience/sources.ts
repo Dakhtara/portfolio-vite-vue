@@ -19,4 +19,9 @@ export default [
         type: "gltfModel",
         path: "/assets/models/php.glb"
     },
+    {
+        name: "symfonyModel",
+        type: "gltfModel",
+        path: "/assets/models/symfony.glb"
+    },
 ]

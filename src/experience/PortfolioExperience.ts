@@ -61,6 +61,10 @@ export default class PortfolioExperience
             this.update()
         })
 
+        document.addEventListener('mousemove', (event) => {
+            this.onMouseMove(event)
+        })
+
     }
 
     private resize(): void {
@@ -72,6 +76,10 @@ export default class PortfolioExperience
         this.camera.onUpdate()
         this.world.onUpdate()
         this.renderer.onUpdate()
+    }
+
+    private onMouseMove(mouseEvent): void {
+        this.world.onMouseMove(mouseEvent)
     }
 
     destroy() {
