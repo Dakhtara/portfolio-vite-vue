@@ -14,7 +14,8 @@ let currentSection = 0;
 onMounted(() => {
   fromEvent(document, "wheel")
       .pipe(throttleTime(700))
-      .subscribe((event) => {
+      //@ts-ignore
+      .subscribe((event: WheelEvent) => {
         if (isAnimating) {
           return;
         }
